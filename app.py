@@ -4,6 +4,7 @@ import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+import matplotlib.cm as cm
 
 # ── Global Plotly dark theme ──────────────────────────────────────────────────
 import plotly.io as pio
@@ -194,7 +195,7 @@ desc["skewness"] = df[num_cols].skew().round(3)
 desc["kurtosis"] = df[num_cols].kurtosis().round(3)
 desc = desc.round(2)
 st.dataframe(desc.style.background_gradient(subset=["mean","std","skewness"],
-             cmap="Blues"), use_container_width=True)
+             cmap=cm.Blues), use_container_width=True)
 
 # Correlation Heatmap
 st.subheader("🔗 Correlation Matrix")
